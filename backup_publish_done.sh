@@ -8,7 +8,7 @@ DIR="$(dirname "$0")"
 . "$DIR/config.sh"
 . "$DIR/utils.sh" # parse_argv, kill
 
-exec > "$LOGS_FOLDER/scripts/main_publish.log" 2>&1
+# exec > "$LOGS_FOLDER/scripts/main_publish.log" 2>&1
 
 parse_argv "$@"
 

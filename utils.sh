@@ -61,8 +61,12 @@ push_stream() { # Starts pushing stream
 
 	nohup "$RUNNER" \
 		-re -i "rtmp://localhost/$appname/$STREAMNAME" \
-		-c copy -f flv \
-		"rtmp://localhost/$OUT_STREAM_APPNAME/$STREAMNAME" \
+		-threads 8 \
+        -c:a aac -b:a 128k -c:v libx264 -b:v 3500k -f flv -g 30 -r 30 -s 1920x1080 -preset medium -profile:v baseline "rtmp://localhost:1935/${OUT_STREAM_APPNAME}/${STREAMNAME}_1080p3500kbs" \
+        -c:a aac -b:a 128k -c:v libx264 -b:v 2500k -f flv -g 30 -r 30 -s 1280x720 -preset medium -profile:v baseline "rtmp://localhost:1935/${OUT_STREAM_APPNAME}/${STREAMNAME}_720p2628kbs" \
+        -c:a aac -b:a 128k -c:v libx264 -b:v 1000k -f flv -g 30 -r 30 -s 854x480 -preset superfast -profile:v baseline "rtmp://localhost:1935/${OUT_STREAM_APPNAME}/${STREAMNAME}_480p1128kbs" \
+		-c:a aac -b:a 64k -c:v libx264 -b:v 200k -f flv -g 15 -r 15 -s 426x240 -preset superfast -profile:v baseline "rtmp://localhost:1935/${OUT_STREAM_APPNAME}/${STREAMNAME}_240p264kbs" \
+		-max_muxing_queue_size 9999
 		\
 		</dev/null \
 		>"$LOGFILE" \

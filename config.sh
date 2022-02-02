@@ -6,7 +6,7 @@ MAIN_STREAM_PRIORITY="true"
 
 # [avconv|ffmpeg] defines which program will push your stream
 # use avconv if not sure
-RUNNER="avconv"
+RUNNER="ffmpeg"
 
 # nginx rtmp application name for main stream
 MAIN_STREAM_APPNAME="main"
@@ -15,7 +15,7 @@ MAIN_STREAM_APPNAME="main"
 BACKUP_STREAM_APPNAME="backup"
 
 # nginx rtmp application name for final stream
-OUT_STREAM_APPNAME="out"
+OUT_STREAM_APPNAME="hls"
 
 # username for nginx worker processes
 NGINX_USER="nobody"

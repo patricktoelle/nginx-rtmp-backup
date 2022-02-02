@@ -8,7 +8,7 @@ DIR="$(dirname "$0")"
 . "$DIR/config.sh"
 . "$DIR/utils.sh" # parse_argv, assert_one_of, kill, is_running, push_stream
 
-exec > "$LOGS_FOLDER/scripts/main_publish.log" 2>&1
+# exec > "$LOGS_FOLDER/scripts/main_publish.log" 2>&1
 
 parse_argv "$@"
 assert_one_of MAIN_STREAM_PRIORITY true false
